@@ -41,7 +41,7 @@ public class AnnouncementRepository : BaseRepository, IRepository<Announcement>
     public async Task<IEnumerable<Announcement>> Search(string query)
     {
         using var connection = CreateConnection();
-        return await connection.QueryAsync<Announcement>("SELECT * FROM Announcements WHERE Date ILIKE @Query OR Title ILIKE @Query OR Description ILIKE @Query OR Industry ILIKE @Query;", new { Query = $"%{query}%" });
+        return await connection.QueryAsync<Announcement>("SELECT * FROM Announcements WHERE Title ILIKE @Query OR Description ILIKE @Query OR Industry ILIKE @Query;", new { Query = $"%{query}%" });
 
     }
 

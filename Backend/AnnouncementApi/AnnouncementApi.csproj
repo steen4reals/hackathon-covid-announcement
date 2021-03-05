@@ -2,7 +2,11 @@
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
+<<<<<<< HEAD
     <UserSecretsId>d780aabd-65e1-4e8d-b155-334b45e46ca2</UserSecretsId>
+=======
+    <UserSecretsId>94e29dc7-a9b3-4104-9855-69a5247512a4</UserSecretsId>
+>>>>>>> 314cab92235eb25471bc42a691c07903d0397ff2
   </PropertyGroup>
 
   <ItemGroup>
