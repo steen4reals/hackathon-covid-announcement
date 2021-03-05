@@ -1,10 +1,13 @@
 import React from 'react';
 
-function ListItem(props) {
+function ListItem({date, description, industry, title}) {
     return (
-        <div>
-            
-        </div>
+        <ol>
+            <li>{date}</li>
+            <li>{title}</li>
+            <li>{industry}</li>
+            <li>{description}</li>
+        </ol>
     );
 }
 

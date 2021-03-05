@@ -30,6 +30,7 @@ function List() {
   return (
     <div>
       {/* map array of announcements fecthed into ListItems             */}
+      {announcements.map(a => <ListItem title = {a.title} key ={a.id} description = {a.description} industry = {a.industry} date = {a.date}/>)}
     </div>
   );
 }
