@@ -1,12 +1,11 @@
 import React from 'react';
-
 //pass in handle text
-function Input(){
-    return (
-        <div>
-            {/* input component */}
-        </div>
-    );
-};
-
+function Input({ handleText, text }) {
+  return (
+    <div className="input">
+      <input onChange={(event) => handleText(event)} />
+      <p>{text}</p>
+    </div>
+  );
+}
 export default Input;

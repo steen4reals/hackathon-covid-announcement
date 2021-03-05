@@ -13,23 +13,23 @@ const announcementsArr = [
   },
 ];
 
-function List() {
+function List({ text }) {
   //announcements state
   const [announcements, setAnnouncements] = useState(announcementsArr);
   //useEffect for fetching api
   useEffect(() => {
     async function getData() {
-      let res = await fetch(url);
+      let res = await fetch(`${url}?search=${text}`);
       let data = await res.json();
       setAnnouncements(data);
     }
     getData();
-  }, []);
+  }, [text]);
 
   console.log(announcements);
 
   return (
-    <div>
+    <div className="list">
       {/* map array of announcements fecthed into ListItems             */}
       <ul>
         {announcements.map((a) => (
