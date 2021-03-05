@@ -3,7 +3,8 @@
   grid-template-rows: auto;
   border-style: solid;
   padding: 20px;
-  border-color: yellow;
+  border-color: rgb(238, 238, 188);
   color: white;
   font-size: 20px;
+  list-style-type: none;
 }
