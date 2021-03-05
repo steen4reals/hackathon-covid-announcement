@@ -11,7 +11,7 @@ public class BaseRepository
     {
         _configuration = configuration;
     }
- 
+
     private NpgsqlConnection SqlConnection()
     {
         var stringBuilder = new NpgsqlConnectionStringBuilder
@@ -22,12 +22,12 @@ public class BaseRepository
             Port = Int32.Parse(_configuration["PGPORT"]),
             Password = _configuration["PGPASSWORD"],
             SslMode = SslMode.Require,
-            TrustServerCertificate = true 
+            TrustServerCertificate = true
         };
         return new NpgsqlConnection(stringBuilder.ConnectionString);
     }
 
-   
+
     public IDbConnection CreateConnection()
     {
         var conn = SqlConnection();

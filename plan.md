@@ -53,13 +53,14 @@ app
 
 **App**
 
-- Announcment state
 
 - Text state
 
 - useReducer
 
 **List**
+
+- Announcement state
 
 - Fetch useEffect
 
