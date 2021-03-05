@@ -1,4 +1,5 @@
 import React from 'react';
+import './index.css';
 //pass in handle text
 function Input({ handleText, text }) {
   return (

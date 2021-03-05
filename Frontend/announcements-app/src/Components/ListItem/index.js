@@ -1,4 +1,5 @@
 import React from 'react';
+import './index.css';
 
 function ListItem({ date, description, industry, title }) {
   return (
