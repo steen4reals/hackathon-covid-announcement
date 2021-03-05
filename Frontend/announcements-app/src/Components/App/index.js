@@ -11,8 +11,8 @@ function App() {
   }
   //
   return (
-    <div className="app">
-      <h1>Covid-19 Announcements</h1>
+    <div className="app" data-testid="app">
+      <h1 className="h1">Covid-19 Announcements</h1>
       <Input text={text} handleText={handleChange}></Input>
       <List text={text}></List>
     </div>
