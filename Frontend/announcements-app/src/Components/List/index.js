@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import ListItem from '../ListItem';
 
 const url = 'http://localhost:5000/announcement';
 
@@ -30,7 +31,17 @@ function List() {
   return (
     <div>
       {/* map array of announcements fecthed into ListItems             */}
-      {announcements.map(a => <ListItem title = {a.title} key ={a.id} description = {a.description} industry = {a.industry} date = {a.date}/>)}
+      <ul>
+        {announcements.map((a) => (
+          <ListItem
+            title={a.title}
+            key={a.id}
+            description={a.description}
+            industry={a.industry}
+            date={a.date}
+          />
+        ))}
+      </ul>
     </div>
   );
 }
