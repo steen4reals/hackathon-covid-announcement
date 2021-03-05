@@ -29,19 +29,19 @@ public class AnnouncementRepository : BaseRepository, IRepository<Announcement>
     public async Task<Announcement> Update(Announcement Announcement)
     {
         using var connection = CreateConnection();
-        return await connection.QuerySingleAsync<Announcement>("UPDATE Announcements SET Date = @Date, Title = @Title, Description = @Description WHERE Id = @Id RETURNING *", Announcement);
+        return await connection.QuerySingleAsync<Announcement>("UPDATE Announcements SET Date = @Date, Title = @Title, Description = @Description, Industry = @Industry WHERE Id = @Id RETURNING *", Announcement);
     }
 
     public async Task<Announcement> Insert(Announcement Announcement)
     {
         using var connection = CreateConnection();
-        return await connection.QuerySingleAsync<Announcement>("INSERT INTO Announcements (Date, Title, Description) VALUES (@Date, @Title, @Description) RETURNING *;", Announcement);
+        return await connection.QuerySingleAsync<Announcement>("INSERT INTO Announcements (Date, Title, Description, Industry) VALUES (@Date, @Title, @Description, @Industry) RETURNING *;", Announcement);
     }
 
     public async Task<IEnumerable<Announcement>> Search(string query)
     {
         using var connection = CreateConnection();
-        return await connection.QueryAsync<Announcement>("SELECT * FROM Announcements WHERE Date ILIKE @Query OR Title ILIKE @Query OR Description ILIKE @Query;", new { Query = $"%{query}%" });
+        return await connection.QueryAsync<Announcement>("SELECT * FROM Announcements WHERE Date ILIKE @Query OR Title ILIKE @Query OR Description ILIKE @Query OR Industry ILIKE @Query;", new { Query = $"%{query}%" });
 
     }
 
