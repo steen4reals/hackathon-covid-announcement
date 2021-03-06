@@ -8,8 +8,15 @@ const API_URL = 'http://localhost:5000/announcement';
 function List({ text }) {
   const announcements = useFetch(`${API_URL}?search=${text}`, text);
 
-  if (!announcements) {
-    return <p>Loading...</p>;
+  if (!announcements || announcements.length === 0) {
+    return (
+      <ListItem
+        title={''}
+        description={'No results . . .'}
+        industry={''}
+        date={''}
+      />
+    );
   }
 
   return (
