@@ -1,48 +1,30 @@
 import React, { useState, useEffect } from 'react';
 import ListItem from '../ListItem';
 
-const url = 'http://localhost:5000/announcement';
+import useFetch from '../../Hooks/useFetch';
 
-const announcementsArr = [
-  {
-    date: '2021-03-08T00:00:00',
-    description: 'Schools return, with Covid-19 testing in place.',
-    id: 1,
-    industry: 'Education',
-    title: 'Stage 1a',
-  },
-];
+const API_URL = 'http://localhost:5000/announcement';
 
 function List({ text }) {
-  //announcements state
-  const [announcements, setAnnouncements] = useState(announcementsArr);
-  //useEffect for fetching api
-  useEffect(() => {
-    async function getData() {
-      let res = await fetch(`${url}?search=${text}`);
-      let data = await res.json();
-      setAnnouncements(data);
-    }
-    getData();
-  }, [text]);
+  const announcements = useFetch(`${API_URL}?search=${text}`, text);
 
-  console.log(announcements);
+  if (!announcements) {
+    return <p>Loading...</p>;
+  }
 
   return (
-    <div className="list">
-      {/* map array of announcements fecthed into ListItems             */}
-      <ul>
-        {announcements.map((a) => (
-          <ListItem
-            title={a.title}
-            key={a.id}
-            description={a.description}
-            industry={a.industry}
-            date={a.date}
-          />
-        ))}
-      </ul>
-    </div>
+    <section className="list">
+      {/* map array of announcements fecthed into ListItems*/}
+      {announcements.map((a) => (
+        <ListItem
+          key={a.id}
+          title={a.title}
+          description={a.description}
+          industry={a.industry}
+          date={a.date}
+        />
+      ))}
+    </section>
   );
 }
 
