@@ -7,14 +7,14 @@ function App() {
   //text state
   const [text, setText] = useState('');
   //handle text
-  function handleChange(event) {
-    setText(event.target.value);
+  function handleText(e) {
+    setText(e.target.value);
   }
 
   return (
-    <div className="app" data-testid = 'app'>
+    <div className="app" data-testid="app">
       <h1>Covid-19 Announcements</h1>
-      <Input text={text} handleText={handleChange}></Input>
+      <Input text={text} handleText={handleText}></Input>
       <List text={text}></List>
     </div>
   );
