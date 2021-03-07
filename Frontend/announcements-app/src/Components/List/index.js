@@ -1,32 +1,30 @@
-import ListItem from '../ListItem';
-import useFetch from '../../Hooks/useFetch';
+import ListItem from "../ListItem";
+import Loader from "../Loader";
+import useFetch from "../../Hooks/useFetch";
 
-const API_URL = 'http://localhost:5000/announcement';
+const API_URL = "http://localhost:5000/announcement";
 
 function List({ text }) {
   const announcements = useFetch(`${API_URL}?search=${text}`, text);
 
-  if (!announcements || announcements.length === 0) {
-    return (
-      <ListItem
-        title={''}
-        description={'No results . . .'}
-        industry={''}
-        date={''}
-      />
-    );
+  if (!announcements) {
+    return <Loader />;
+  }
+
+  if (!announcements.length) {
+    return <ListItem />;
   }
 
   return (
     <section className="list">
-      {/* map array of announcements fecthed into ListItems*/}
+      {/*map array of announcements fetched into ListItems*/}
       {announcements.map((a) => (
         <ListItem
           key={a.id}
           title={a.title}
           description={a.description}
           industry={a.industry}
-          date={a.date}
+          date={a.date.slice(0, 10)}
         />
       ))}
     </section>
