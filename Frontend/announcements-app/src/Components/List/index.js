@@ -1,6 +1,4 @@
-import React, { useState, useEffect } from 'react';
 import ListItem from '../ListItem';
-
 import useFetch from '../../Hooks/useFetch';
 
 const API_URL = 'http://localhost:5000/announcement';

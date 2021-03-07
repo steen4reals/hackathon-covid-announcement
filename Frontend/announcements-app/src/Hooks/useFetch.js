@@ -5,14 +5,11 @@ function useFetch(URL, dependency) {
   const [data, setData] = useState();
   //useEffect for fetching api
   useEffect(() => {
-    async function getData() {
-      //GET request: fetch -> parse -> data
-      fetch(URL)
-        .then((res) => res.json())
-        .then((data) => setData(data));
-    }
-    getData();
-  }, [dependency]);
+    //GET request: fetch -> parse -> data
+    fetch(URL)
+      .then((res) => res.json())
+      .then((data) => setData(data));
+  }, [dependency, URL]);
 
   return data;
 }
