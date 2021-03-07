@@ -1,21 +1,10 @@
-.app
-{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: 10px solid goldenrod;
-    flex-direction: column;
-    
-    background-color: #1177ff; 
-    flex-wrap: wrap;
-    color: white;
-    text-shadow: 2px 2px grey;
-    min-height: 100vh;
+.app {
+  display: grid;
+  place-items: center;
 }
 
-.h1 
-{
-    justify-content: start;
-    /* align-items: center; */
-    
+.app h1 {
+  font-size: 100px;
+  font-family: 'Poppins';
+  font-weight: bolder;
 }
